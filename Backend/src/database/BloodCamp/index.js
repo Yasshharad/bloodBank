@@ -13,7 +13,7 @@ const BloodCampSchema = new mongoose.Schema(
         campName: { type: String, required: true },
         campAddress: { type: String, required: true },
         state: { type: String, required: true },
-        cityName: { type: String, required: true },
+        districtName: { type: String, required: true },
         proposeDate: { type: Date, required: true },
         mapLocation: { type: String, required: true },
         startTime: { type: Number, required: true },

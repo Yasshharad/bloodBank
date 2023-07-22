@@ -4,24 +4,32 @@ import jwt from "jsonwebtoken";
 
 const BankSchema = new mongoose.Schema(
     {
-        BloodBankName: { type: String, required: true },
+        bloodBankName: { type: String, required: true },
         state: { type: String, required: true },
-        District: { type: String, required: true },
+        district: { type: String, required: true },
         city: { type: String, required: true },
         address: [{ detail: { type: String }, for: { type: String } }],
-        Pincode: { type: Number },
+        pincode: { type: Number },
         contactNo: [{ type: Number }],
-        Email: { type: String, required: true },
+        email: { type: String, required: true },
         website: { type: String, required: true },
-        NodalOfficer: { type: String, required: true },
-        NodalOfficerContact: { type: String, required: true },
+        nodalOfficer: { type: String, required: true },
+        nodalOfficerContact: { type: String, required: true },
         category: { type: String, required: true },
-        BloodComponentAvailable: { type: Boolean, required: true },
-        Licence: { type: String, required: true },
-        Latitude: { type: String, required: true },
-        Longitude: { type: String, required: true },
-        password: { type: String },
-
+        availability: [{
+            bloodGroup: {
+                type: mongoose.Types.ObjectId,
+                ref: "bloodDonations",
+            },
+            bloodComponent: {
+                type: mongoose.Types.ObjectId,
+                ref: "bloodDonations",
+            },
+        }],
+        licence: { type: String, required: true },
+        latitude: { type: String, required: true },
+        longitude: { type: String, required: true },
+        password: { type: String, required: true },
     },
     {
         timestamps: true,
@@ -34,9 +42,9 @@ BankSchema.methods.generateJwtToken = function () {
 };
 
 // helper functions
-BankSchema.statics.findByBloodBankNameAndLicence = async ({ BloodBankName, Licence }) => {
-    const checkUserByEmail = await BankModel.findOne({ BloodBankName });
-    const checkUserByPhone = await BankModel.findOne({ Licence });
+BankSchema.statics.findByBloodBankNameAndLicence = async ({ bloodBankName, licence }) => {
+    const checkUserByBloodBankName = await BankModel.findOne({ bloodBankName });
+    const checkUserByLicence = await BankModel.findOne({ licence });
 
     if (checkUserByBloodBankName || checkUserByLicence) {
         throw new Error("Blood bank Already registered ...!");
@@ -78,4 +86,4 @@ BankSchema.pre("save", function (next) {
     });
 });
 
-export const BankModel = mongoose.model("banks", BankSchema);
+export const BloodBankModel = mongoose.model("blooBanks", BankSchema);

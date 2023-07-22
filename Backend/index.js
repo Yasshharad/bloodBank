@@ -4,27 +4,33 @@ import dotenv from "dotenv";
 // Database connection
 import ConnectDB from "./src/database/connection";
 
+// APIs
+import BloodBank from "./src/api/Bloodbank";
 
 dotenv.config();
 
 
-const zomato = express();
+const myBloodBank = express();
 
 // adding additional passport configuration
 
-zomato.use(express.json());
+myBloodBank.use(express.json());
 
 
-zomato.get("/", (req, res) => {
+myBloodBank.get("/", (req, res) => {
     res.json({
         message: "Server is running",
     });
 });
 
+// auth/signup
+
+myBloodBank.use("/bloodBank", BloodBank);
+
 
 const PORT = 4000;
 
-zomato.listen(PORT, () => {
+myBloodBank.listen(PORT, () => {
     ConnectDB()
         .then(() => {
             console.log("Server is running !!!");
