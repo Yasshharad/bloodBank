@@ -1,0 +1,36 @@
+import express from "express";
+import dotenv from "dotenv";
+
+// Database connection
+import ConnectDB from "./src/database/connection";
+
+
+dotenv.config();
+
+
+const zomato = express();
+
+// adding additional passport configuration
+
+zomato.use(express.json());
+
+
+zomato.get("/", (req, res) => {
+    res.json({
+        message: "Server is running",
+    });
+});
+
+
+const PORT = 4000;
+
+zomato.listen(PORT, () => {
+    ConnectDB()
+        .then(() => {
+            console.log("Server is running !!!");
+        })
+        .catch((error) => {
+            console.log("Server is running, but database connection failed...");
+            console.log(error);
+        });
+});
