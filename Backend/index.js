@@ -6,6 +6,8 @@ import ConnectDB from "./src/database/connection";
 
 // APIs
 import BloodBank from "./src/api/Bloodbank";
+import BloodCamp from "./src/api/BloodCamp";
+import BloodDonate from "./src/api/BloodDonate";
 
 dotenv.config();
 
@@ -23,9 +25,11 @@ myBloodBank.get("/", (req, res) => {
     });
 });
 
-// auth/signup
+// apis
 
 myBloodBank.use("/bloodBank", BloodBank);
+myBloodBank.use("/bloodCamp", BloodCamp);
+myBloodBank.use("/bloodDonate", BloodDonate);
 
 
 const PORT = 4000;
