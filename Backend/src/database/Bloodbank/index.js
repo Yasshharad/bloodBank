@@ -86,4 +86,8 @@ BankSchema.pre("save", function (next) {
     });
 });
 
-export const BloodBankModel = mongoose.model("bloodBanks", BankSchema);
+// <<<<<<< admin-panel
+// export const BloodBankModel = mongoose.model("bloodBanks", BankSchema);
+// =======
+// export const BloodBankModel = mongoose.model("bloodBanks", BankSchema);
+// >>>>>>> main
