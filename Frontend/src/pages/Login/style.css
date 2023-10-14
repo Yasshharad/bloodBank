@@ -1,11 +1,13 @@
-.login-btn{
+.login-btn {
     border: none;
-    background-color: #0d5077 ;
-    color: white;
-      
-    font-size: 1.2rem;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    font-size: 1.3rem;
 }
 
-.login-container{
-    background-color:rgb(206, 95, 95);
+.login-container {
+    background: url('https://images.unsplash.com/photo-1584303491647-1ee0c6feda18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTEwfHxibG9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60') center/cover;
+    /* Add a background image */
+    padding: 45px;
+    background-color: rgb(249, 249, 249);
 }
