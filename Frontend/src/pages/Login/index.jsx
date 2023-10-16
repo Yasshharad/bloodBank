@@ -17,7 +17,7 @@ const handleLogin =  () =>{
     <img
    src="https://img.freepik.com/free-vector/blood-donor-nurse_74855-6262.jpg"
    alt=""
-   style={{ border: '2.5px solid #000' }}
+   style={{ border: '2.6px solid #000' }}
  />
  
  
@@ -25,7 +25,7 @@ const handleLogin =  () =>{
     <div>
   <form className="col-6">
     <h2 className="login-title">Login</h2>
-    <div className="form-floating mb-3" style={{ marginBottom: '20px' }}>
+    <div className="form-floating mb-3" style={{ marginBottom: '21px' }}>
       <input
         type="email"
         className="form-control"
@@ -37,7 +37,7 @@ const handleLogin =  () =>{
       />
       <label htmlFor="email">Email</label>
     </div>
-    <div className="form-floating" style={{ marginBottom: '20px' }}>
+    <div className="form-floating" style={{ marginBottom: '21px' }}>
       <input
         type="password"
         className="form-control"
@@ -49,7 +49,7 @@ const handleLogin =  () =>{
       />
       <label htmlFor="password">Password</label>
     </div>
-    <div className="text-center" style={{ margin: '20px 0' }}>
+    <div className="text-center" style={{ margin: '21px 0' }}>
       <button className="login-btn py-3 rounded-3" onClick={() => { handleLogin() }}>
         Login
       </button>
